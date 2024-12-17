@@ -1,0 +1,18 @@
+// UVM Simulation Commands :: Questa
+1. vlog filename.sv // for compilation
+2. vsim -c work.module_name +UVM_TESTNAME=test_name // to pass argument for run_test()
+3. run -all
+4. vsim -c work.module_name +UVM_TESTNAME=test_name +UVM_VERBOSITY=verbosity_level // to pass argument for run_test() and to pass 
+    verbosity level from command line
+
+5. vsim -c work.module_name +UVM_TESTNAME=my_test +UVM_MAX_QUIT_COUNT=5 +UVM_VERBOSITY=verbosity_level // to pass argument for    
+   run_test() and to pass verbosity level and set the maximum error quit count from command line
+
+ 
+4. vlog filename.sv +define+UVM_REPORT_DISABLE_FILE_LINE // to disable file name and line number
+
+5. vsim -c work.module_name +uvm_set_verbosity=uvm_test_top.drvh,"my_drv",UVM_NONE,build //filter in verbosity for a particular component from command line.
+
+6. vsim -c work.module_name +UVM_TESTNAME=test +uvm_set_action=uvm_test_top.drvh,"driver",UVM_INFO,UVM_NO_ACTION // to change the severity action form the command line.
+
+7. vsim -c work.module_name +UVM_TESTNAME=test +uvm_set_severity=uvm_test_top.drvh,"driver",UVM_INFO,UVM_WARNING // to change the severity from command line. 
